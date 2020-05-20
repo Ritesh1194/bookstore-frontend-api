@@ -14,6 +14,7 @@ import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 import { Costomer } from "src/app/shared/model/costomer.model";
 import { UserLoginComponent } from "../authentication/user-login/user-login.component";
 import { UserService } from "src/app/shared/service/user.service";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-books-cart",
@@ -31,6 +32,7 @@ export class BooksCartComponent implements OnInit {
   quantity = 1;
   currentpage = "cart";
   customerForm: FormGroup;
+  isCartEmpty = false;
   cusomerDetails = new Costomer();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
@@ -41,8 +43,10 @@ export class BooksCartComponent implements OnInit {
     private formBuilder: FormBuilder,
     private cartService: CartServiceService,
     private userservice: UserService,
-    private route: Router
+    private route: Router,
+    private titleService: Title
   ) {
+    this.setTitle("BookStore UserCart");
     this.cartService.autoRefresh$.subscribe(() => {
       this.getOrderList();
       this.orderList.paginator = this.paginator;
@@ -86,7 +90,12 @@ export class BooksCartComponent implements OnInit {
   getOrderList() {
     this.cartService.getCartList().subscribe((message) => {
       this.orders = message.orders;
+
       this.size = this.orders.length;
+      if (this.orders.length == 0) {
+        console.log("cart empty");
+        this.isCartEmpty = true;
+      }
       console.log(message.orders.length);
       this.orderList = new MatTableDataSource(this.orders);
       const price = this.orders.map((i) => i.total);
@@ -96,6 +105,7 @@ export class BooksCartComponent implements OnInit {
   }
   removeCartBook(bookId) {
     this.cartService.removeFromeBag(bookId).subscribe((message) => {
+      sessionStorage.removeItem(bookId);
       this.matSnackBar.open("Book Removed From Cart", "OK", {
         duration: 4000,
       });
@@ -160,14 +170,6 @@ export class BooksCartComponent implements OnInit {
     if (localStorage.isLogin == undefined && localStorage.isLogin == null) {
       this.cosForm = false;
       this.route.navigate(["/login"]);
-      // const dialogRef = this.dialog.open(UserLoginComponent, {
-      //   width: "500px",
-      //   height: "600px",
-      //   panelClass: "custom-dialog-container",
-      // });
-      // dialogRef.afterClosed().subscribe((result) => {
-      //   console.log("The dialog was closed");
-      // });
     } else {
       this.cosForm = true;
     }
@@ -195,5 +197,9 @@ export class BooksCartComponent implements OnInit {
   }
   setBudgetTotal() {
     this.cartService.setBudgetTotal(this.orders.size());
+  }
+
+  public setTitle(title: string) {
+    this.titleService.setTitle(title);
   }
 }

@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
 import { NgxSpinner } from "ngx-spinner/lib/ngx-spinner.enum";
 import { NgxSpinnerService } from "ngx-spinner";
 import { MatchPassword } from "../../../util/password-match";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-registration",
@@ -28,8 +29,11 @@ export class RegistrationComponent implements OnInit {
     private userservice: UserService,
     private router: Router,
     private spinner: NgxSpinnerService,
-    private formBuilder: FormBuilder
-  ) {}
+    private formBuilder: FormBuilder,
+    private titleService: Title
+  ) {
+    this.setTitle("BookStore-SignUp");
+  }
   ngOnInit() {
     this.spinner.show();
     this.registerForm = this.formBuilder.group(
@@ -92,7 +96,7 @@ export class RegistrationComponent implements OnInit {
       },
       (error: any) => {
         this.showSpinner = false;
-        this.matSnackBar.open(error.error, "ok", { duration: 4000 });
+        this.matSnackBar.open(error.error.error, "ok", { duration: 4000 });
         console.log(error);
       }
     );
@@ -117,13 +121,16 @@ export class RegistrationComponent implements OnInit {
       },
       (error: any) => {
         this.showSpinner = false;
-        this.matSnackBar.open(error.error, "ok", { duration: 4000 });
+        this.matSnackBar.open(error.error.error, "ok", { duration: 4000 });
         console.log(error);
       }
     );
     if (this.registerForm.invalid) {
       return;
     }
+  }
+  public setTitle(title: string) {
+    this.titleService.setTitle(title);
   }
 
   get f() {

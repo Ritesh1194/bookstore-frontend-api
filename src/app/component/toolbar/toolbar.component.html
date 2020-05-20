@@ -5,13 +5,16 @@
   fullscreen
 >
   <!-- home -->
-  <div class="home" fxFlex="10" fxLayoutGap="5%">
-    
-  </div>
+  <div class="home" fxFlex="10" fxLayoutGap="5%"></div>
   <!-- logo  name -->
   <div class="logo-name" fxFlex="15">
     <div class="image" style="display: flex; justify-content: flex-start;">
-      <img src=".\assets\education.png" style="height: 35px;" alt="open book"  [routerLink]="['']"/>
+      <img
+        src=".\assets\education.png"
+        style="height: 35px;"
+        alt="open book"
+        [routerLink]="['']"
+      />
       <span class="mat-title" fxHide.xs="true"
         >&nbsp;&nbsp;&nbsp;Bookstore</span
       >
@@ -47,11 +50,11 @@
   </div>
   <!-- Shooping cart -->
   <div class="cart" *ngIf="isUser" fxFlex="15" align="center">
+    <span style="color: #fff; font-size: small;">&nbsp;&nbsp;&nbsp;Cart</span>
     <button mat-icon-button routerLink="/cart" matTooltip="Cart">
       <mat-icon matBadge="{{ totalItem }}" matBadgeSize="small"
         >add_shopping_cart</mat-icon
       >
-      <span style="color: #fff;">&nbsp;&nbsp;&nbsp;Cart</span>
     </button>
   </div>
   <!-- to give 1 space for mobile -->

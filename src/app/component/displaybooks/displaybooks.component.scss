@@ -108,7 +108,7 @@ mat-card-title {
 .cart-buttons {
   display: flex;
   flex-direction: row;
-  margin-left: 20px;
+  margin-left: 15px;
   margin-right: 20px;
   padding-bottom: 20px;
   justify-content: space-between;
@@ -118,6 +118,7 @@ mat-card-title {
   height: 50px;
   width: 120px;
   margin-left: 10px;
+  margin-bottom: 10px;
   color: white;
   background-color: rgba(87, 25, 25, 0.904);
 }
@@ -125,7 +126,10 @@ mat-card-title {
   color: white;
   background-color: #a03037;
   height: 35px;
-  width: auto;
+  width: 93px;
+  padding: 0px;
+  border-radius: 0px;
+  font-size: small;
   border: none;
   cursor: pointer;
 }
@@ -135,6 +139,47 @@ mat-card-title {
   width: auto;
   background-color: white;
   cursor: pointer;
+  border-radius: 0px;
+}
+.update {
+  height: 35px;
+  margin-left: 10px;
+  width: 83px;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 0px;
+}
+.addedbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// pagination-controls li.current {
+//   background: gray;
+// }
+
+.ngx-pagination .current {
+  padding: 0.1875rem 0.625rem;
+  background: rgba(143, 43, 47, 1) !important ;
+  color: #fefefe;
+  cursor: default;
+}
+.out-of-stock {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  text-align: center;
+  padding: 8px 0px;
+  font-size: medium;
+  position: absolute;
+  font-family: Lato;
+  font-weight: bold;
+  top: 100px;
+  left: 30px;
+  right: 30px;
+  box-shadow: 0px 3px 8px #00000029;
+  border-radius: 2px;
+  opacity: 0.9;
+  text-transform: uppercase;
 }
 
 .out-of-stock {

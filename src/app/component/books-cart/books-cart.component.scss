@@ -1,229 +1,19 @@
-// table {
-//   width: 100%;
-// }
-// .main-conatiner {
-//   border: 1px solid gray;
-//   margin: 10px;
-//   padding: 10px;
-// }
-// .container {
-//   margin-top: 5px;
-//   height: auto;
-//   width: auto;
-// }
-// mat-paginator-container {
-//   display: flex;
-//   align-items: center;
-//   align-content: center;
-//   font-size: x-large;
-// }
-// .bottom {
-//   background-color: rgba(131, 4, 4, 0.829);
-//   padding: 10px;
-//   text-align: center;
-//   color: white;
-//   bottom: 0px;
-//   width: 100%;
-// }
-// .title {
-//   font-size: 18px;
-//   font-weight: bolder;
-//   font-family: Arial, Helvetica, sans-serif;
-//   align-items: flex-start;
-//   margin-top: 10px;
-//   margin-bottom: 30px;
-//   color: rgb(179, 184, 190);
-// }
-// .mat-table {
-//   height: auto;
-//   width: auto;
-//   background-color: lavender;
-// }
-
-// .example-flex-container {
-//   display: flex;
-//   justify-content: space-between;
-//   width: 480px;
-// }
-// .header-block {
-//   background-color: rgba(131, 4, 4, 0.829);
-//   border: none;
-//   width: 18rem;
-//   color: white;
-//   height: 10px;
-//   font-size: 0.8rem;
-//   margin: 0px;
-//   padding: 0px;
-//   font-family: Arial, Helvetica, sans-serif;
-//   font-style: italic;
-//   font-weight: bolder;
-//   margin-left: auto;
-//   margin-right: auto;
-//   align-items: center;
-//   align-content: center;
-//   padding: 20px 20px 20px 80px;
-// }
-// .rows-blocks {
-//   background-color: whitesmoke;
-//   border: 1px thin black;
-//   color: rgba(87, 25, 25, 0.904);
-//   height: 2rem;
-//   font-size: 1rem;
-//   margin: 0px;
-//   padding: 0px;
-//   font-family: Arial, Helvetica, sans-serif;
-//   font-style: italic;
-//   font-weight: bolder;
-//   margin-left: auto;
-//   margin-right: auto;
-//   align-items: center;
-//   align-content: center;
-//   // padding: 0px 20px 20px 0px;
-// }
-// rows-blocks total {
-//   display: flex;
-// }
-// .checkout {
-//   display: flex;
-//   flex-direction: row;
-//   margin-top: 2rem;
-//   margin-bottom: 2rem;
-//   justify-content: space-between;
-// }
-// .container-fa {
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   align-content: center;
-//   width: 22%;
-//   background-color: rgb(202, 196, 196);
-// }
-// .fa {
-//   font-size: large;
-//   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-//   font-weight: bolder;
-//   color: red;
-//   margin-right: 30px;
-// }
-// .fa-value {
-//   font-size: large;
-//   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-//   font-weight: bolder;
-//   color: rgb(101, 5, 131);
-// }
-// button {
-//   height: 60px;
-//   width: 200px;
-//   border: none;
-//   background-color: rgba(87, 25, 25, 0.904);
-//   color: whitesmoke;
-//   font-size: larger;
-//   font-weight: bolder;
-// }
-// .ch-btn {
-//   margin-right: 20rem;
-// }
-
-// .form-conatiner {
-//   border: 1px solid gray;
-//   margin: 10px;
-//   padding: 10px;
-// }
-// form {
-//   width: 40rem;
-// }
-// mat-form-field {
-//   width: 100%;
-// }
-// .name-contact {
-//   width: 100%;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-around;
-// }
-// .address {
-//   margin-left: 13px;
-//   margin-right: 13px;
-//   height: 100px;
-// }
-// #address {
-//   height: 60px;
-// }
-// .summery-Heading {
-//   width: 70%;
-//   height: 70px;
-//   background-color: rgb(139, 46, 46);
-//   color: whitesmoke;
-//   font-size: x-large;
-// }
-// .summery-subtitle {
-//   width: 70%;
-//   font-size: large;
-//   margin-top: 20px;
-//   margin-bottom: 20px;
-//   color: red;
-// }
-// .summery-table {
-//   display: flex;
-//   flex-direction: row;
-//   width: 50%;
-//   height: 50px;
-//   background-color: lightgray;
-// }
-// .summery-description {
-//   width: 50%;
-//   padding-left: 20px;
-//   font-size: x-large;
-// }
-// .summery-quantity {
-//   width: 25%;
-//   padding-left: 20px;
-//   font-size: x-large;
-// }
-// .summery-table-data {
-//   display: flex;
-//   flex-direction: row;
-//   width: 50%;
-//   height: auto;
-// }
-// .summery-description-data {
-//   width: 50%;
-//   padding: 30px;
-//   font-size: normal;
-// }
-// .summery-quantity-data {
-//   width: 25%;
-//   padding: 30px;
-//   font-size: normal;
-// }
-// .summery-table-lastrow {
-//   display: flex;
-//   flex-direction: row;
-//   width: 50%;
-//   height: 50px;
-//   background-color: rgb(248, 70, 70);
-//   color: white;
-// }
-// .cnf-btn {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   width: 50%;
-//   height: 50px;
-//   margin-top: 50px;
-//   height: 60px;
-//   width: 200px;
-//   border: none;
-//   background-color: rgba(87, 25, 25, 0.904);
-//   color: whitesmoke;
-//   font-size: larger;
-// }
-
 .main-conatiner {
   border: 1px solid #d6d5d5;
   border-radius: 1px;
   margin: 20px 300px 20px 170px;
   padding-left: 50px;
+}
+.emptycart {
+  height: 590px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.emptycart-text {
+  font-size: x-large;
+  font-family: Lato;
+  font-weight: bold;
 }
 .title {
   font-size: 18px;
@@ -259,17 +49,19 @@
   margin-left: 105px;
   display: flex;
   flex-direction: row;
-  margin-bottom: 30px;
+  margin-bottom: 27px;
 }
 .btn {
   border-radius: 50%;
-  height: 26px;
-  width: 26px;
+  border: 1px solid #d1cece;
+  height: 28px;
+  width: 28px;
   box-shadow: none;
-  margin-right: 5px;
+  margin-right: 8px;
   background-color: white;
   outline: none;
 }
+
 .qty {
   display: flex;
   align-items: center;
@@ -289,7 +81,7 @@
   font-family: Lato Regular;
   font-weight: bolder;
   margin-left: 20px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .place-btn {
   display: flex;

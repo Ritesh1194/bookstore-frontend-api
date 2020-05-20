@@ -8,6 +8,10 @@ export const environment = {
   activateUser: "activate",
   addAddress: "address",
 
+  wishlistApiUrl: "http://localhost:8091/wishlist",
+  addToWishlist: "",
+  addToWishlistWithUser: "user",
+
   bookApiUrl: "http://localhost:8091/books",
   getBooksList: "",
   getSellerBookList: "seller",

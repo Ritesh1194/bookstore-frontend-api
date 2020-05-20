@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CartServiceService } from "src/app/shared/service/cart-service.service";
 import { Costomer } from "src/app/shared/model/costomer.model";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-orderplace-greenting",
@@ -9,7 +10,12 @@ import { Costomer } from "src/app/shared/model/costomer.model";
 })
 export class OrderplaceGreentingComponent implements OnInit {
   customerDetails = new Costomer();
-  constructor(private cartService: CartServiceService) {}
+  constructor(
+    private cartService: CartServiceService,
+    private titleService: Title
+  ) {
+    this.setTitle("Thank You");
+  }
 
   ngOnInit() {
     this.getCustomerDetails();
@@ -20,5 +26,11 @@ export class OrderplaceGreentingComponent implements OnInit {
       this.customerDetails = message.customer;
       console.log(this.customerDetails);
     });
+  }
+  onClickClear() {
+    sessionStorage.clear();
+  }
+  public setTitle(title: string) {
+    this.titleService.setTitle(title);
   }
 }
