@@ -2,12 +2,10 @@
 
 <div class="container">
   <div class="greeting1">
-    <img src="assets\greeting1.jpg" style="height: 15rem; width: 15rem;" />
+    <img src="assets\greeting1.jpg" style="height: 10rem; width: 10rem;" />
   </div>
   <div class="message">
-    <span style="color: rgb(7, 212, 7);">Order </span>
-    <span style="color: rgb(42, 42, 243);">&nbsp; Placed</span>
-    <span style="color: rgb(165, 28, 165);">&nbsp; Successfully</span>
+    <span>Order Placed Successfully</span>
   </div>
   <div class="greeting2" style="margin-top: 10px;">
     <span>hurry!!!your order is confirmed</span>
@@ -18,7 +16,7 @@
   <div class="greeting2">
     <span>further Communication...</span>
   </div>
-  <hr />
+
   <div class="contact-heading"><span>Contact Us</span></div>
   <div class="contactus">
     <div class="card">
@@ -29,7 +27,8 @@
             justify-content: center;
             align-items: center;
             color: white;
-            background-color: rgba(87, 25, 25, 0.904);
+            font-size: larger;
+            background-color: rgba(131, 4, 4, 0.829);
           "
           >Email us</mat-card-title
         >
@@ -37,22 +36,24 @@
           style="
             display: flex;
             justify-content: center;
-            font-size: larger;
+            font-size: medium;
             align-items: center;
+            padding-top: 10px;
           "
           >patilrupesh990@gmail.com</mat-card-content
         >
       </mat-card>
     </div>
     <div class="card">
-      <mat-card>
+      <mat-card class="email">
         <mat-card-title
           style="
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            background-color: rgba(87, 25, 25, 0.904);
+            background-color: rgba(131, 4, 4, 0.829);
+            font-size: larger;
           "
           >Contact us</mat-card-title
         >
@@ -60,22 +61,24 @@
           style="
             display: flex;
             justify-content: center;
-            font-size: larger;
+            font-size: small;
             align-items: center;
+            padding-top: 10px;
           "
           >+91-9558062808</mat-card-content
         >
       </mat-card>
     </div>
     <div class="card">
-      <mat-card>
+      <mat-card class="email">
         <mat-card-title
           style="
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            background-color: rgba(87, 25, 25, 0.904);
+            font-size: larger;
+            background-color: rgba(131, 4, 4, 0.829);
           "
           >Address</mat-card-title
         >
@@ -83,13 +86,37 @@
           style="
             display: flex;
             justify-content: center;
-            font-size: larger;
+            font-size: small;
             align-items: center;
+            padding-top: 10px;
           "
           >225,Lx-Complex,j.k.Cement
           Road,Sector-3,Kadodara,Surat</mat-card-content
         >
       </mat-card>
     </div>
+  </div>
+  <div
+    style="
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <button
+      mat-button
+      style="
+        height: 45px;
+        width: 200px;
+        background-color: #3371b5;
+        color: whitesmoke;
+        font-family: Lato;
+      "
+      (click)="onClickClear()"
+      [routerLink]="['']"
+    >
+      COUNTINUE SHOPPING
+    </button>
   </div>
 </div>
