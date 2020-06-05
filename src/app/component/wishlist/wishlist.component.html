@@ -1,0 +1,158 @@
+<app-toolbar></app-toolbar>
+<div class="main-container">
+    <div class="container">
+      <div class="title">
+        Books
+        <span
+          style="
+            font-size: 15px;
+            font-family: Lato, Regular;
+            color: rgb(139, 136, 136);
+          "
+          >({{ size }} &nbsp;Items)</span
+        >
+      </div>
+    </div>
+    <div class="list-books">
+      <div
+        class="getAllNotes"
+        *ngFor="
+          let book of wishlist
+            | bookSearch: bookSearch
+            | paginate: { itemsPerPage: 10, currentPage: page, id: 'first' }
+        "
+        fxLayout="{{ view }}"
+        [fxLayoutAlign]="center"
+        fxFlexOffset="3"
+      >
+        <mat-card
+          style="height: 21.5em; width: 233px;"
+          matTooltip="{{ book.bookDetails }}"
+        >
+          <mat-card-title matTooltip="Book Image">
+            <img
+              src="{{ book.bookImage }}"
+              style="
+                height: 150px;
+                width: 120px;
+                margin-left: 55px;
+                margin-right: 55px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+              "
+            />
+          </mat-card-title>
+  
+          <mat-card-content style="width: 17em;">
+            <div class="out-of-stock" *ngIf="!book.quantity">
+              Out Of stock
+            </div>
+            <div class="bookname">{{ book.bookName }}</div>
+            <div class="authorname">by {{ book.authorName }}</div>
+            <div class="price">Rs. {{ book.price }}</div>
+            <div
+              class="availablity"
+              style="color: rgb(163, 43, 6);"
+              *ngIf="book.quantity < 5 && book.quantity; else elsecondition"
+            >
+              Only {{ book.quantity }} left hurry up
+            </div>
+            <ng-template #elsecondition>
+              <div
+                class="availablity"
+                style="color: rgb(2, 110, 2);"
+                *ngIf="book.quantity"
+              >
+                Available Books: {{ book.quantity }}
+              </div>
+              <div style="height: 26px;" *ngIf="!book.quantity && isSeller"></div>
+            </ng-template>
+            <div
+              class="cart-buttons"
+              *ngIf="book.quantity && value[book.bookId] != book.bookId"
+            >
+              <div>
+                <button
+                  class="addtobag"
+                  (click)="addToBag(book.bookId, book.quantity)"
+                  #clickState
+                  mat-button
+                >
+                  ADD TO BAG
+                </button>
+              </div>
+              <div>
+                <button
+                  style="border: 1px solid #9d9d9d; outline: none;"
+                  class="wishlist"
+                  mat-button
+                  (click)="removeWishlist(book.bookId)"
+                >
+                  REMOVE
+                </button>
+              </div>
+            </div>
+  
+            <!--Added to bag-->
+  
+            <div
+              class="addedbtn"
+              *ngIf="book.quantity && value[book.bookId] == book.bookId"
+            >
+              <button
+                style="
+                  height: 32px;
+                  width: 191px;
+                  background-color: #3371b5;
+                  border-radius: 2px;
+                  color: whitesmoke;
+                  text-align: center;
+                "
+                mat-button
+              >
+                ADDED TO BAG
+              </button>
+            </div>
+  
+            <div class="addedbtn" *ngIf="!book.quantity">
+              <button
+                style="
+                  height: 34px;
+                  width: 191px;
+                  border-radius: 0px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-top: 10px;
+                  border: 1px solid #9d9d9d;
+                "
+                mat-button
+                (click)="removeWishlist(book.bookId)"
+              >
+                REMOVE
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div>
+      <div class="paginator" align="center">
+        <pagination-controls
+          (pageChange)="page = $event"
+          id="first"
+          [responsive]="responsive"
+          [autoHide]="autoHide"
+          [maxSize]="maxSize"
+          [directionLinks]="directionLinks"
+          [previousLabel]="labels.previousLabel"
+          [nextLabel]="labels.nextLabel"
+        ></pagination-controls>
+      </div>
+    </div>
+    <div class="bottom" style="height: 3%; position: absolute;">
+        Copyright &copy; 2020, Bookstore #DI Team. All rights reserved
+      </div>
+  </div>
+ 
+  

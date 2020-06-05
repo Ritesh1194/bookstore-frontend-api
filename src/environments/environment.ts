@@ -11,6 +11,10 @@ export const environment = {
   wishlistApiUrl: "http://localhost:8091/wishlist",
   addToWishlist: "",
   addToWishlistWithUser: "user",
+  getWishList: "allWishlist",
+  getUserWishlist: "user-wishlist",
+  deleteWishlist: "",
+  deleteUserWishlist: "user-remove",
 
   bookApiUrl: "http://localhost:8091/books",
   getBooksList: "",

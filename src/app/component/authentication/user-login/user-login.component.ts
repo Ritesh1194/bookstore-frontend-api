@@ -19,6 +19,8 @@ export class UserLoginComponent implements OnInit {
   hide = true;
   userPage = "user";
   page;
+  isError = false;
+  errorMessage;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -63,7 +65,8 @@ export class UserLoginComponent implements OnInit {
       },
       (error: any) => {
         this.showSpinner = false;
-        console.log(error);
+        this.isError = true;
+        this.errorMessage = error.error.error;
         this.matSnackBar.open(error.error.error, "ok", {
           duration: 3000,
         });
@@ -88,6 +91,8 @@ export class UserLoginComponent implements OnInit {
       },
       (error: any) => {
         this.showSpinner = false;
+        this.isError = true;
+        this.errorMessage = error.error.error;
         this.matSnackBar.open(error.error.error, "ok", {
           duration: 3000,
         });
