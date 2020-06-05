@@ -19,8 +19,7 @@ export class RegistrationComponent implements OnInit {
   showSpinner = false;
   registerForm: FormGroup;
   submitted = false;
-  hide = true;
-  hide2 = true;
+  hide: boolean = false;
   showMsg = false;
 
   // tslint:disable-next-line:max-line-length
@@ -38,37 +37,45 @@ export class RegistrationComponent implements OnInit {
     this.spinner.show();
     this.registerForm = this.formBuilder.group(
       {
-        firstName: ["", [Validators.required]],
-        lastName: [""],
+        firstName: [
+          "",
+          [Validators.required, Validators.pattern("^[a-zA-Z]{1,255}$")],
+        ],
+        lastName: [
+          "",
+          [Validators.required, Validators.pattern("^[a-zA-Z]{1,255}$")],
+        ],
         email: [
           "",
-          [
-            Validators.required,
-            Validators.pattern("^[a-z0-9.%-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"),
-          ],
+          [Validators.compose([Validators.required, Validators.email])],
         ],
         password: [
           "",
           [
-            Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(16),
+            Validators.compose([
+              Validators.required,
+              Validators.minLength(6),
+              Validators.maxLength(16),
+            ]),
           ],
         ],
         cnfpassword: [
           "",
           [
-            Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(16),
+            Validators.compose([
+              Validators.required,
+              Validators.minLength(6),
+              Validators.maxLength(16),
+            ]),
           ],
         ],
         phNo: [
           "",
           [
-            Validators.required,
-            Validators.minLength(10),
-            Validators.maxLength(10),
+            Validators.compose([
+              Validators.required,
+              Validators.pattern("^[0-9]{10}$"),
+            ]),
           ],
         ],
         userName: ["", [Validators.required]],
@@ -133,7 +140,7 @@ export class RegistrationComponent implements OnInit {
     this.titleService.setTitle(title);
   }
 
-  get f() {
+  get userInfo() {
     return this.registerForm.controls;
   }
 }

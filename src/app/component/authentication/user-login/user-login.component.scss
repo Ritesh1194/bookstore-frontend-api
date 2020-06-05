@@ -109,7 +109,11 @@ a {
   color: black;
   text-decoration: none;
 }
-
+.errormsg {
+  width: 100%;
+  color: red;
+  text-align: center;
+}
 input.input:focus {
   outline-width: 0;
 }

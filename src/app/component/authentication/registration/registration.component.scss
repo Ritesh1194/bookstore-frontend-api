@@ -1,123 +1,65 @@
-.example-form {
-  background-color: transparent;
-  width: 500px;
-  border-radius: 15px;
-  box-shadow: 2px 4px 7px 1px;
-  top: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-}
-.rowthreed {
-  align-content: center;
-  font-style: unset;
-  font-size: 10vp;
-  background-color: rgba(131, 4, 4, 0.829);
-  color: white;
-  font-variant: normal;
-  text-align: center;
-  font-family: Lato, Regular;
-  text-transform: capitalize;
-  text-decoration-style: wavy;
-}
-.form-items {
-  padding: 20px;
-  padding-bottom: 20px;
-  background-color: whitesmoke;
-}
-.example-full-width {
-  width: 100%;
-}
-.medium-list {
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  display: flex;
-  margin: 0px 0px 0px 0px;
-  align-items: center;
-  justify-content: center;
-  background-color: whitesmoke;
+mat-card {
+  width: 440px;
 }
 
-.divider {
-  margin-top: 10 px !important ;
-  background-color: rgba(87, 25, 25, 0.904);
-  margin: 20px 10px;
-  width: auto;
-  height: 50px;
-  text-decoration-color: white;
+.container {
+  margin: 15px;
 }
-.button-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.symbol-password {
+  margin-bottom: 15px;
 }
-
-.list-viewer-wrapper {
-  border: 1px solid rgba(0, 0, 0, 0.03);
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
-  text-align: center;
-  color: whitesmoke;
-  background-color: white;
-  margin-top: 10px !important;
-}
-.list-header-title {
-  color: rgba(233, 114, 114, 0.54);
-  background: rgba(0, 0, 0, 0.03);
-  padding: 8px 20px;
-  font-weight: bold;
-}
-.form-container {
-  display: flex;
-  flex-direction: column;
-}
-.threed {
-  color: opacity($color: rgb(25, 25, 29));
-  color: rgba($color: rgb(16, 16, 20), $alpha: 1);
-  margin-top: 10px;
-}
-.mat-form-field {
-  font-size: 20px;
-}
-.fields {
-  display: flex;
-  flex-direction: column;
-}
-.mat-radio-group {
-  font-size: 20px;
-}
-mat-radio-button {
-  padding: 10px;
-}
-.mat-card {
-  width: 550px;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-mat-icon {
-  font-family: "Material Icons" !important;
-}
-button:disabled {
-  background: rgb(238, 220, 250);
-}
-.name {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: space-between;
-}
-.psw-cnpsw {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: space-between;
-}
-h2 {
-  margin-top: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+// mat card override style
+.mat-card-actions {
+  margin: 0px;
   margin-bottom: 5px;
+  padding: 0px;
+}
+
+mat-icon {
+  opacity: 0.7;
+}
+
+mat-card-header {
+  background-color: #a03037;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+
+// design of sign up overring mat-headline properties
+.mat-headline {
+  color: #fff;
+  margin: 0px;
+  padding: 8px 0px;
+  font-weight: 500;
+  font-size: x-large;
+  letter-spacing: 1px;
+  padding-right: 24px;
+}
+// overriding border color of radio botton gender
+:host
+  ::ng-deep
+  .mat-radio-button.mat-accent.mat-radio-checked
+  .mat-radio-outer-circle {
+  border-color: #a03037 !important;
+}
+// overriding the selected color of radio button gender
+:host ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle,
+.mat-radio-button.mat-accent
+  .mat-radio-ripple
+  .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background-color: #a03037 !important;
+}
+
+// adjustment on both register botton
+#register {
+  font-size: medium;
+  background-color: rgba(160, 48, 55, 0.9);
+  color: #fff;
+}
+
+.login-link {
+  padding-top: 10px;
+  font-size: large;
 }

@@ -50,6 +50,7 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { SortbypricePipe } from "./pipe/sortbyprice.pipe";
 import { OrderplaceGreentingComponent } from "./component/orderplace-greenting/orderplace-greenting.component";
 import { AuthGuard } from "./component/authentication/auth.guard";
+import { WishlistComponent } from './component/wishlist/wishlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +68,7 @@ import { AuthGuard } from "./component/authentication/auth.guard";
     BookSearchPipe,
     SortbypricePipe,
     OrderplaceGreentingComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,15 +3,6 @@
   margin: 0;
   padding-top: 5px;
 }
-
-// override of mat input wrapper class
-// :host ::ng-deep .mat-form-field-wrapper {
-//   margin: 0;
-//   padding: 0;
-//   background-color: rgba(230, 227, 227, 0.856);
-//   opacity: 0.8;
-// }
-
 .search {
   background-color: #fff;
   padding: 3px;
@@ -70,4 +61,7 @@ mat-icon {
 img {
   cursor: pointer;
   outline: none;
+}
+.signout-button {
+  background-color: #fff;
 }

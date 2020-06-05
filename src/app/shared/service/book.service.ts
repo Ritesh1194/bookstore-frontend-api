@@ -30,6 +30,20 @@ export class BookService {
       `${environment.bookApiUrl}/${environment.getBooksList}`
     );
   }
+
+  getWishlist(): Observable<any> {
+    if (localStorage.isLogin === undefined && localStorage.isLogin == null) {
+      return this.httpservice.getWithoutHeader(
+        `${environment.wishlistApiUrl}/${environment.getWishList}?userId=${sessionStorage.userId}`
+      );
+    } else {
+      return this.httpservice.get(
+        `${environment.wishlistApiUrl}/${environment.getUserWishlist}`,
+        { headers: new HttpHeaders().set("token", localStorage.token) }
+      );
+    }
+  }
+
   getSellerBookList(): Observable<any> {
     return this.httpservice.get(
       `${environment.bookApiUrl}/${environment.getSellerBookList}`,

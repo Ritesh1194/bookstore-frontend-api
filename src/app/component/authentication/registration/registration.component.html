@@ -1,293 +1,135 @@
-<div class="medium-list" fxLayoutAlign="center center">
-  <mat-card style="box-shadow: 1px 1px 1px 2px lightgray; opacity: 0.8;">
-    <mat-card-title class="rowthreed">
-      <h2>Sign Up</h2>
-    </mat-card-title>
-    <form [formGroup]="registerForm" (ngSubmit)="(registerForm.valid)" noval>
+<div class="container" align=center>
+  <mat-card style="box-shadow: 2px 3px 12px -2px rgba(160, 48, 55, 0.8);">
+    <mat-card-header fxLayoutAlign="center">
+      <div class="mat-headline">Sign Up</div>
+    </mat-card-header>
+    <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid">
       <mat-card-content>
-        <ngx-spinner
-          *ngIf="showSpinner"
-          bdColor="rgba(51,51,51,0.8)"
-          size="medium"
-          color="#DDA0DD"
-          type="ball-scale-multiple"
-        >
-          <p style="font-size: 20px; color: white;">Loading...</p>
+        <!-- ngx spinner -->
+        <ngx-spinner *ngIf="showSpinner" bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff"
+          type="ball-scale-multiple">
+          <p style="font-size: 20px; color: white">Loading...</p>
         </ngx-spinner>
-        <div class="name" fxLayout="row" fxLayoutAlign="space-between center">
-          <div class="fields">
-            <mat-form-field
-              style="margin-bottom: -1.25em;"
-              appearance="outline"
-            >
-              <mat-icon matPrefix style="margin-right: 20px;">person</mat-icon>
-              <input
-                id="firstName"
-                matInput
-                formControlName="firstName"
-                placeholder="Enter First Name"
-                autocomplete="off"
-                required
-              />
-            </mat-form-field>
-
-            <span style="font-size: 15px; margin-bottom: 6px;">
-              <mat-error
-                *ngIf="f.firstName.touched && f.firstName.errors"
-                class="invalid-feedback"
-              >
-                <mat-error *ngIf="f.firstName.errors.required">
-                  FirstName is required</mat-error
-                >
+        <div class="name-container" fxLayout="row" fxLayoutAlign="space-between center">
+          <!-- first name -->
+          <div class="first-name">
+            <mat-form-field appearance="outline">
+              <mat-label>Firstname</mat-label>
+              <input matInput placeholder="Enter Firstname" formControlName="firstName" />
+              <mat-error *ngIf="registerForm.get('firstName').hasError('required')">First name
+                required</mat-error>
+              <mat-error *ngIf="registerForm.get('firstName').hasError('pattern')">Numbers not
+                allowed
               </mat-error>
-            </span>
+            </mat-form-field>
           </div>
-          <div class="fields">
-            <mat-form-field
-              style="margin-bottom: -1.25em;"
-              appearance="outline"
-            >
-              <mat-icon matPrefix style="margin-right: 20px;">person</mat-icon>
-              <input
-                id="lastname"
-                matInput
-                formControlName="lastName"
-                placeholder="Enter Last Name"
-                autocomplete="off"
-              />
+          <!-- last name -->
+          <div class="last-name">
+            <mat-form-field appearance="outline">
+              <mat-label>Lastname</mat-label>
+              <input matInput placeholder="Enter Lastname" formControlName="lastName" />
+              <mat-error *ngIf="registerForm.get('lastName').hasError('required')">Last name
+                required</mat-error>
+              <mat-error *ngIf="registerForm.get('lastName').hasError('pattern')">Numbers not
+                allowed</mat-error>
             </mat-form-field>
           </div>
         </div>
-
-        <div class="fields" style="width: 100%;">
-          <mat-form-field
-            style="margin-bottom: -1.25em; width: 100%;"
-            appearance="outline"
-          >
-            <mat-icon matPrefix style="margin-right: 20px;">
-              mail_outline</mat-icon
-            >
-            <input
-              type="email"
-              matInput
-              formControlName="email"
-              placeholder="Enter email eg. abc@xyz.com"
-              autocomplete="off"
-              required
-            />
-          </mat-form-field>
-          <span style="font-size: 15px; margin-bottom: 6px;">
-            <mat-error
-              *ngIf="f.email.touched && f.email.errors"
-              class="invalid-feedback"
-            >
-              <mat-error *ngIf="f.email.errors.required">
-                Email is required</mat-error
-              >
-              <mat-error *ngIf="f.email.errors.pattern">
-                Please Enter valid Email</mat-error
-              >
+        <!-- email id -->
+        <div class="email-id">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter Email" formControlName="email" />
+            <mat-icon matSuffix>mail_outline</mat-icon>
+            <mat-error *ngIf="registerForm.get('email').hasError('required')">Email required
             </mat-error>
-          </span>
+            <mat-error *ngIf="registerForm.get('email').hasError('email')">Enter valid email
+              ex:abc@gmail.com</mat-error>
+          </mat-form-field>
         </div>
-        <div class="fields">
-          <mat-form-field
-            style="margin-bottom: -1.25em; width: 100%;"
-            appearance="outline"
-          >
-            <mat-icon matPrefix style="margin-right: 20px;"
-              >phone_iphone</mat-icon
-            >
-            <input
-              id="phNo"
-              matInput
-              formControlName="phNo"
-              placeholder="Enter your 10 digit Mobile No"
-              autocomplete="off"
-              required
-            />
+        <!-- phone number -->
+        <div class="phone-number">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Phone number</mat-label>
+            <input matInput placeholder="Enter Phone number" formControlName="phNo" />
             <mat-icon matSuffix>phone</mat-icon>
+            <mat-error *ngIf="registerForm.get('phNo').hasError('required')">Phone number is
+              mandatory</mat-error>
+            <mat-error *ngIf="registerForm.get('phNo').hasError('pattern')">Phone number
+              must be 10 digits</mat-error>
           </mat-form-field>
-          <span style="font-size: 15px; margin-top: 10px;">
-            <mat-error
-              *ngIf="f.phNo.touched && f.phNo.errors"
-              class="invalid-feedback"
-            >
-              <mat-error *ngIf="f.phNo.errors.required">
-                *phone number is required</mat-error
-              >
-              <mat-error *ngIf="!f.phNo.errors.required && f.phNo.errors">
-                *phone must be 10 digit</mat-error
-              >
-            </mat-error>
-          </span>
         </div>
-        <div class="fields">
-          <mat-form-field
-            style="margin-bottom: -1.25em; width: 100%;"
-            appearance="outline"
-          >
-            <mat-icon matPrefix style="margin-right: 20px;"
-              >perm_identity</mat-icon
-            >
-            <input
-              id="userName"
-              matInput
-              formControlName="userName"
-              placeholder="Choose User Name Should be Unique"
-              autocomplete="off"
-            />
+        <!-- user name -->
+        <div class="user-name">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Enter Username" formControlName="userName" />
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="registerForm.get('userName').hasError('required')">Username is
+              mandatory</mat-error>
           </mat-form-field>
-          <span style="font-size: 15px; margin-top: 10px;">
-            <mat-error
-              *ngIf="f.userName.touched && f.userName.errors"
-              class="invalid-feedback"
-            >
-              <mat-error *ngIf="f.userName.errors.required">
-                UserName is required</mat-error
-              >
-            </mat-error>
-          </span>
         </div>
-        <div
-          class="psw-cnpsw"
-          fxLayout="row"
-          fxLayoutAlign="space-between center"
-        >
-          <div>
-            <div class="fields">
-              <mat-form-field
-                style="margin-bottom: -1.25em;"
-                appearance="outline"
-              >
-                <mat-icon matPrefix style="margin-right: 20px;">lock</mat-icon>
-                <input
-                  type="password"
-                  id="password"
-                  matInput
-                  formControlName="password"
-                  placeholder="Enter password"
-                  [type]="hide ? 'password' : 'text'"
-                  autocomplete="off"
-                />
-                <mat-icon matSuffix (click)="hide = !hide">
-                  {{ hide ? "visibility" : "visibility_off" }}
-                </mat-icon>
-              </mat-form-field>
-              <span style="font-size: 15px; margin-bottom: 6px;">
+        <!-- password container both password and confirm password -->
+        <div class="password-container" fxLayout="row" fxLayoutAlign="space-between center">
+          <div class="password">
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput [type]="!hide ? 'password' : 'text'" formControlName="password" />
+              <mat-error>
                 <mat-error
-                  *ngIf="f.password.touched && f.password.errors"
-                  class="invalid-feedback"
-                >
-                  <mat-error *ngIf="f.password.errors.required">
-                    You must set Password</mat-error
-                  >
-                  <mat-error
-                    *ngIf="f.password.errors && !f.password.errors.required"
-                  >
-                    Password must be 6 character long</mat-error
-                  >
-                </mat-error>
-              </span>
-            </div>
+                  *ngIf="this.registerForm.get('password').touched && this.registerForm.get('password').hasError('required')">
+                  Please provide a strong password</mat-error>
+                <mat-error *ngIf="registerForm.controls['password'].hasError('minlength')">
+                  Password must be 6 character long</mat-error>
+                <mat-error *ngIf="registerForm.controls['password'].hasError('maxlength')">
+                  Password should not exceed 16 character</mat-error>
+              </mat-error>
+            </mat-form-field>
           </div>
-          <div>
-            <div class="fields">
-              <mat-form-field
-                style="margin-bottom: -1.25em;"
-                appearance="outline"
-              >
-                <mat-icon matPrefix style="margin-right: 20px;">lock</mat-icon>
-                <input
-                  type="password"
-                  id="cnfpassword"
-                  matInput
-                  formControlName="cnfpassword"
-                  placeholder="confirm password"
-                  [type]="hide2 ? 'password' : 'text'"
-                  autocomplete="off"
-                />
-                <mat-icon matSuffix (click)="hide2 = !hide2">
-                  {{ hide2 ? "visibility" : "visibility_off" }}
-                </mat-icon>
-              </mat-form-field>
-              <span style="font-size: 15px; margin-top: 10px;">
-                <mat-error
-                  *ngIf="f.cnfpassword.touched && f.cnfpassword.errors"
-                  class="invalid-feedback"
-                >
-                  <mat-error *ngIf="f.cnfpassword.errors.required">
-                    Please Re-Enter password</mat-error
-                  >
-                  <mat-error
-                    *ngIf="
-                      !f.cnfpassword.errors.required && f.cnfpassword.errors
-                    "
-                  >
-                    Password Must be same</mat-error
-                  >
+          <div class="confirm-password">
+            <mat-form-field appearance="outline">
+              <mat-label>Confirm</mat-label>
+              <input matInput [type]="!hide ? 'password' : 'text'" formControlName="cnfpassword" />
+              <mat-error *ngIf="userInfo.cnfpassword.touched && userInfo.cnfpassword.errors">
+                <mat-error *ngIf="userInfo.cnfpassword.errors.required">Please Re-Enter password
                 </mat-error>
-              </span>
-            </div>
+                <mat-error *ngIf="!userInfo.cnfpassword.errors.required && userInfo.cnfpassword.errors">
+                  Password Must be same</mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="symbol-password">
+            <mat-icon matSuffix (click)="hide = !hide">
+              {{ !hide ? "visibility_off" : "visibility" }}
+            </mat-icon>
           </div>
         </div>
-        <div class="uname" fxLayout="row" fxLayoutAlign="space-between center">
-          <mat-radio-group matInput formControlName="gender">
+        <!-- gender -->
+        <div class="gender" align=start>
+          <mat-radio-group matInput aria-labelledby="Select an option" formControlName="gender">
             <mat-radio-button value="male">Male</mat-radio-button>
+            &nbsp;&nbsp;
             <mat-radio-button value="female">Female</mat-radio-button>
+            &nbsp;&nbsp;
             <mat-radio-button value="other">Other</mat-radio-button>
           </mat-radio-group>
         </div>
-        <mat-card-actions class="button-container" align="end">
-          <div>
-            <button
-              style="
-                border-radius: 10px;
-                outline: none;
-                font-size: 20px;
-                font-weight: 500;
-                color: whitesmoke;
-              "
-              [disabled]="!registerForm.valid"
-              mat-button
-              type="submit"
-              class="divider"
-              (click)="onSellerRegisterSubmit()"
-            >
-              Register As a Seller
-            </button>
-          </div>
-          <div>
-            <button
-              style="
-                border-radius: 10px;
-                outline: none;
-                font-size: 20px;
-                font-weight: 500;
-                color: whitesmoke;
-              "
-              [disabled]="!registerForm.valid"
-              mat-button
-              type="submit"
-              class="divider"
-              (click)="onRegisterSubmit()"
-            >
-              Register As a User
-            </button>
-          </div>
-        </mat-card-actions>
-        <a
-          href="#"
-          style="
-            align-content: space-around;
-            margin-top: 1px;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-            font-size: 25px;
-          "
-          >Already Register?</a
-        >
       </mat-card-content>
+      <mat-card-actions>
+        <div class="register" fxLayout="row" fxLayoutAlign="space-around center">
+          <div class="seller">
+            <button mat-raised-button type="submit" [disabled]="!registerForm.valid" (click)="onSellerRegisterSubmit()"
+              id="register">Register as Seller</button>
+          </div>
+          <div class="user">
+            <button mat-raised-button type="submit" [disabled]="!registerForm.valid" (click)="onRegisterSubmit()"
+              id="register">Register as User</button>
+          </div>
+        </div>
+        <div class="login-link">
+          <a [routerLink]="['/login']">Sign in instead?</a>
+        </div>
+      </mat-card-actions>
     </form>
   </mat-card>
 </div>
