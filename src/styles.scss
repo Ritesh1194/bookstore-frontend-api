@@ -61,3 +61,6 @@ element.style {
   font-size: x-large;
   padding: 0px 15px;
 }
+::ng-deep .mat-menu-content {
+  padding: 0px;
+}

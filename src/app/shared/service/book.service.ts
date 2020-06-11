@@ -115,11 +115,9 @@ export class BookService {
   }
 
   setSearchBookData(message: any) {
-    console.log("set service", message);
     return this.searchBookData.next({ books: message });
   }
   getSearchBookData(): Observable<any> {
-    console.log("get service");
     return this.searchBookData.asObservable();
   }
 }

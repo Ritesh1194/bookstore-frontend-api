@@ -77,7 +77,6 @@ export class WishlistComponent implements OnInit {
     // this.toggle = !this.toggle;
     this.cartService.addToBag(bookId, 1).subscribe(
       (message) => {
-        console.log(message);
         sessionStorage.setItem(bookId, bookId);
         this.value[bookId] = bookId;
         this.matSnackBar.open("Book Added to Bag SuccessFully", "OK", {
@@ -96,14 +95,12 @@ export class WishlistComponent implements OnInit {
 
   getSearchBookData() {
     this.bookService.getSearchBookData().subscribe((message) => {
-      console.log("search data", message.books);
       this.bookSearch = message.books;
     });
   }
 
   removeWishlist(bookId) {
     this.cartService.removeFromWishlist(bookId).subscribe((message) => {
-      console.log(message);
       this.matSnackBar.open("Removed From Wishlist", "OK", {
         duration: 4000,
       });
@@ -112,7 +109,6 @@ export class WishlistComponent implements OnInit {
 
   getCartItems() {
     this.cartService.getCartList().subscribe((message) => {
-      console.log("sss");
       this.budgetTotal = message.orders.length;
     });
   }

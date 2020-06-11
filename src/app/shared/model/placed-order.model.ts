@@ -5,4 +5,5 @@ export class PlacedOrder {
   public price: number;
   public rating: number;
   public bookName: string;
+  public createdTime: string;
 }

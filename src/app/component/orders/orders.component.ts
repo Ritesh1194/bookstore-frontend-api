@@ -11,6 +11,7 @@ import { MatSnackBar } from "@angular/material";
 export class OrdersComponent implements OnInit {
   rating: number;
   placedOrders: PlacedOrder[];
+  size;
   isRated: boolean = false;
   constructor(
     private cartService: CartServiceService,
@@ -29,6 +30,7 @@ export class OrdersComponent implements OnInit {
         console.log("response list : ", response);
         this.placedOrders = response.orders;
         console.log("placed orders : ", this.placedOrders);
+        this.size = this.placedOrders.length;
       },
       (errors: any) => {
         console.log("errors : ", errors);

@@ -82,7 +82,6 @@ export class DisplaybooksComponent implements OnInit {
 
   getAllBookList() {
     this.bookService.getBookList().subscribe((message) => {
-      console.log(message);
       this.books = message.bookList;
       this.size = message.bookList.length;
     });
@@ -92,7 +91,6 @@ export class DisplaybooksComponent implements OnInit {
 
   getSellerBook() {
     this.bookService.getSellerBookList().subscribe((message) => {
-      console.log(message);
       this.books = message.bookList;
       this.size = message.bookList.length;
     });
@@ -126,9 +124,7 @@ export class DisplaybooksComponent implements OnInit {
       panelClass: "custom-dialog-container",
       data: { bookId },
     });
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log("The dialog was closed");
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 
   openDialog2(): void {
@@ -136,9 +132,7 @@ export class DisplaybooksComponent implements OnInit {
       width: "auto",
       panelClass: "custom-dialog-container",
     });
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log("The dialog was closed");
-    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 
   addToBag(bookId, quantity) {
@@ -156,7 +150,6 @@ export class DisplaybooksComponent implements OnInit {
 
   getSearchBookData() {
     this.bookService.getSearchBookData().subscribe((message) => {
-      console.log("search data", message.books);
       this.bookSearch = message.books;
     });
   }
@@ -165,12 +158,10 @@ export class DisplaybooksComponent implements OnInit {
       this.ngOnInit();
     }
     this.sortbyprice = this.selectedOption;
-    console.log(this.sortbyprice);
   }
   addToWishlist(bookId) {
     // this.toggle = !this.toggle;
     this.cartService.addToWishlist(bookId).subscribe((message) => {
-      console.log(message);
       this.matSnackBar.open(message.message, "OK", {
         duration: 4000,
       });
@@ -178,16 +169,13 @@ export class DisplaybooksComponent implements OnInit {
   }
 
   getCartItems() {
-    console.log("getCartList");
     this.cartService.getCartList().subscribe((message) => {
-      console.log("sss");
       this.budgetTotal = message.orders.length;
     });
   }
   setBudgetTotal() {
     this.getCartItems();
     this.cartService.setBudgetTotal(this.budgetTotal);
-    console.log("set budgetTotal");
   }
   public setTitle(title: string) {
     this.titleService.setTitle(title);
