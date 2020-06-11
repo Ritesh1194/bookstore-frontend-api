@@ -59,6 +59,11 @@
               WISHLIST
             </button>
           </div>
+          <div class="orders" *ngIf="isLogin">
+            <button mat-stroked-button routerLink="/orders">
+              Orders
+            </button>
+          </div>
           <div class=" div-profile" *ngIf="isLogin">
             <div class="div-signout">
               <button (click)="onClickClear()" mat-button [routerLink]="['']" class="signout-button">

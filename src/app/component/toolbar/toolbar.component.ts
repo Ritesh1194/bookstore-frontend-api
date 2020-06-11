@@ -35,7 +35,6 @@ export class ToolbarComponent implements OnInit {
         this.isSeller = true;
       }
     });
-
     if (localStorage.isLogin !== undefined && localStorage.isLogin !== null) {
       this.isLogin = true;
     } else {
@@ -44,6 +43,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getCartItems();
     this.getBudgetTotal();
   }
 
@@ -65,6 +65,15 @@ export class ToolbarComponent implements OnInit {
       if (this.totalItem != null) {
         console.log("if condion");
         this.isbudget = true;
+      }
+    });
+  }
+  getCartItems() {
+    console.log("getCartList");
+    this.cartService.getCartList().subscribe((message) => {
+      console.log("sss");
+      if (message.orders.length > 0) {
+        this.totalItem = message.orders.length;
       }
     });
   }

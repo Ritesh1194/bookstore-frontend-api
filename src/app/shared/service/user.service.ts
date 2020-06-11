@@ -68,6 +68,20 @@ export class UserService {
     this.queryParam.next({ id: message });
   }
 
+  forgotPasswordVerifyMail(email) {
+    return this.httpservice.getWithoutHeader(
+      `${environment.userApiUrl}/${environment.forgotPassword}/${email}`
+    );
+  }
+
+  resetPassword(token, user) {
+    return this.httpservice.put(
+      `${environment.userApiUrl}/${token}`,
+      {},
+      { headers: new HttpHeaders().set("password", user.password) }
+    );
+  }
+
   getQueryParam(): Observable<any> {
     return this.queryParam.asObservable();
   }

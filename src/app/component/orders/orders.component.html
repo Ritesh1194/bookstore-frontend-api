@@ -1,0 +1,28 @@
+<app-toolbar></app-toolbar>
+<div *ngFor="let placedOrder of placedOrders">
+    <div class="container">
+        <div class="cart-book" div fxLayout="row" fxLayoutAlign="space-around none">
+            <div class="book-img">
+                <img [src]="placedOrder.bookImage" height="90px" width="65px" align=center />
+            </div>
+            <div class="book-info" fxLayout="column" fxLayoutAlign="space-evenly stretch">
+                <div class="book-name">{{ placedOrder.bookName }}</div>
+                <div class="author">by: {{ placedOrder.authorName }}</div>
+                <div class="quantity">Quantity: {{ placedOrder.quantity }}</div>
+            </div>
+            <div class="price" fxLayout="column" fxLayoutAlign="space-evenly center">
+                {{ placedOrder.price | currency:'INR' }}</div>
+            <div class="rating" fxLayout="column" fxLayoutAlign="space-evenly center">
+                <rating [(ngModel)]="placedOrder.rating" [max]="5" fullIcon="★" emptyIcon="☆" [float]="true"
+                    [titles]="['Very Dissatisfied', 'Dissatisfied', 'Ok', 'Satisfied', 'Extremely Satisfied']"
+                    [readonly]="isRated"></rating>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="bottom" style="height: 3%; position: absolute;">
+    Copyright &copy; 2020, Bookstore #DI Team. All rights reserved
+</div>

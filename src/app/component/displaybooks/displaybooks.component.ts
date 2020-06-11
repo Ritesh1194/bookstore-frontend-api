@@ -72,6 +72,10 @@ export class DisplaybooksComponent implements OnInit {
       let key = sessionStorage.key(i);
       this.value[sessionStorage.getItem(key)] = sessionStorage.getItem(key);
     }
+    this.cartService.autoRefresh$.subscribe(() => {
+      this.getAllBookList();
+      this.getSellerBook();
+    });
   }
 
   ngOnInit() {}
@@ -167,13 +171,14 @@ export class DisplaybooksComponent implements OnInit {
     // this.toggle = !this.toggle;
     this.cartService.addToWishlist(bookId).subscribe((message) => {
       console.log(message);
-      this.matSnackBar.open("Added to Wishlist", "OK", {
+      this.matSnackBar.open(message.message, "OK", {
         duration: 4000,
       });
     });
   }
 
   getCartItems() {
+    console.log("getCartList");
     this.cartService.getCartList().subscribe((message) => {
       console.log("sss");
       this.budgetTotal = message.orders.length;
@@ -182,6 +187,7 @@ export class DisplaybooksComponent implements OnInit {
   setBudgetTotal() {
     this.getCartItems();
     this.cartService.setBudgetTotal(this.budgetTotal);
+    console.log("set budgetTotal");
   }
   public setTitle(title: string) {
     this.titleService.setTitle(title);

@@ -26,6 +26,18 @@ import {
   MatStepperModule,
   MatBadge,
   MatBadgeModule,
+  MatSlideToggleModule,
+  MatSliderModule,
+  MatAutocompleteModule,
+  MatListModule,
+  MatGridListModule,
+  MatTabsModule,
+  MatButtonToggleModule,
+  MatExpansionModule,
+  MatChipsModule,
+  MatProgressSpinnerModule,
+  MatProgressBarModule,
+  MatDialogModule,
 } from "@angular/material";
 import { ReactiveFormsModule, FormBuilder, FormsModule } from "@angular/forms";
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -50,7 +62,12 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { SortbypricePipe } from "./pipe/sortbyprice.pipe";
 import { OrderplaceGreentingComponent } from "./component/orderplace-greenting/orderplace-greenting.component";
 import { AuthGuard } from "./component/authentication/auth.guard";
-import { WishlistComponent } from './component/wishlist/wishlist.component';
+import { WishlistComponent } from "./component/wishlist/wishlist.component";
+import { OrdersComponent } from "./component/orders/orders.component";
+import { RatingModule } from "ngx-rating";
+import { ForgotpasswordComponent } from "./component/authentication/forgotpassword/forgotpassword.component";
+import { ResetPasswordComponent } from "./component/authentication/reset-password/reset-password.component";
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +86,10 @@ import { WishlistComponent } from './component/wishlist/wishlist.component';
     SortbypricePipe,
     OrderplaceGreentingComponent,
     WishlistComponent,
+    OrdersComponent,
+    ForgotpasswordComponent,
+    ResetPasswordComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,6 +122,39 @@ import { WishlistComponent } from './component/wishlist/wishlist.component';
     MatPaginatorModule,
     MatStepperModule,
     MatBadgeModule,
+    MatCheckboxModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatBadgeModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    RatingModule,
   ],
   entryComponents: [
     UserLoginComponent,

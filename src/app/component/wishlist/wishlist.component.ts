@@ -7,6 +7,7 @@ import { AddbookComponent } from "../addbook/addbook.component";
 import { UploadBookimageComponent } from "../addbook/upload-bookimage/upload-bookimage.component";
 import { UpdateBookComponent } from "../update-book/update-book.component";
 import { Title } from "@angular/platform-browser";
+import { error } from "util";
 
 @Component({
   selector: "app-wishlist",
@@ -74,15 +75,23 @@ export class WishlistComponent implements OnInit {
 
   addToBag(bookId, quantity) {
     // this.toggle = !this.toggle;
-    this.cartService.addToBag(bookId, 1).subscribe((message) => {
-      console.log(message);
-      sessionStorage.setItem(bookId, bookId);
-      this.value[bookId] = bookId;
-      this.matSnackBar.open("Book Added to Bag SuccessFully", "OK", {
-        duration: 4000,
-      });
-      this.setBudgetTotal();
-    });
+    this.cartService.addToBag(bookId, 1).subscribe(
+      (message) => {
+        console.log(message);
+        sessionStorage.setItem(bookId, bookId);
+        this.value[bookId] = bookId;
+        this.matSnackBar.open("Book Added to Bag SuccessFully", "OK", {
+          duration: 4000,
+        });
+        this.setBudgetTotal();
+        this.removeWishlist(bookId);
+      },
+      (error: any) => {
+        this.matSnackBar.open(error.error.error, "OK", {
+          duration: 4000,
+        });
+      }
+    );
   }
 
   getSearchBookData() {
@@ -96,16 +105,6 @@ export class WishlistComponent implements OnInit {
     this.cartService.removeFromWishlist(bookId).subscribe((message) => {
       console.log(message);
       this.matSnackBar.open("Removed From Wishlist", "OK", {
-        duration: 4000,
-      });
-    });
-  }
-
-  addToWishlist(bookId) {
-    // this.toggle = !this.toggle;
-    this.cartService.addToWishlist(bookId).subscribe((message) => {
-      console.log(message);
-      this.matSnackBar.open("Added to Wishlist", "OK", {
         duration: 4000,
       });
     });

@@ -156,4 +156,17 @@ export class CartServiceService {
   getBudgetTotal(): Observable<any> {
     return this.setbugetTotal.asObservable();
   }
+
+  /**
+   * getAllOrderedBook
+   */
+  public getUsersOrdersList(): Observable<any> {
+    console.log("#service reached get orders operation started.");
+    return this.httpservice.get(
+      `${environment.cartApiUrl}/${environment.allOrders}`,
+      {
+        headers: new HttpHeaders().set("token", localStorage.token),
+      }
+    );
+  }
 }
